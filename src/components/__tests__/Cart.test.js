@@ -9,11 +9,19 @@ import appStore from "../../utils/appStore";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    json: () => Promise.resolve(MOCK_DATA_NAME),
-  })
-);
+// global.fetch = jest.fn(() =>
+//   Promise.resolve({
+//     json: () => Promise.resolve(MOCK_DATA_NAME),
+//   })
+// );
+
+
+global.fetch = jest.fn(()=> 
+   Promise.resolve({
+    json : ()=> Promise.resolve(MOCK_DATA_NAME),
+   }
+   )
+)
 
 it("should Load Restaurant Menu Component", async () => {
   await act(async () =>

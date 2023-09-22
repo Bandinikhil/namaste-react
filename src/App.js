@@ -26,20 +26,20 @@ const Grocery = lazy(() => import("./components/Grocery"));
 const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
-  const [userName, setUserName] = useState();
+  const [userName, setUserName] = useState("");
 
   //authentication
   useEffect(() => {
     // Make an API call and send username and password
     const data = {
-      name: "Akshay Saini",
+      name: "User",
     };
     setUserName(data.name);
   }, []);
 
   return (
-    <Provider store={appStore}>
-      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+  <Provider store={appStore}>
+     <UserContext.Provider value={{loggedInUser : userName , setUserName}}>
         <div className="app">
           <Header />
           <Outlet />
